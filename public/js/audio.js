@@ -41,6 +41,20 @@ $(function () {
             }
         }, 300);
     }
+    function playMuted() {
+        setTimeout(function () {
+            if (audio.muted) {
+                iMuted.attr('class', 'fas fa-volume-up');
+                audio.muted = false;
+                audio.play();
+            } else {
+                clearInterval(buffInterval);
+                iMuted.attr('class', 'fas fa-volume-off ');
+                audio.muted = true;
+                audio.play();
+            }
+        }, 300);
+    }
 
 
     function showHover(event) {
@@ -208,14 +222,31 @@ $(function () {
         }
     }
 
+
+
+    function ended(flag) {
+        audio.addEventListener('ended', function() {
+            // get next button index. if it was last one - repeat from first btn
+            ++flag;
+            // audio.src = ;
+            audio.play();
+        }, false);
+    }
+
     function initPlayer() {
         audio = new Audio();
-
-        selectTrack(0);
-
+        let flag = 0;
+        selectTrack(flag);
+        ended(flag);
         audio.loop = false;
+        audio.addEventListener('ended', function() {
+            // get next button index. if it was last one - repeat from first btn
+            selectTrack(++flag);
+
+        }, false);
 
         playPauseButton.on('click', playPause);
+        playMutedButton.on('click', playMuted);
 
         sArea.mousemove(function (event) {
             showHover(event);

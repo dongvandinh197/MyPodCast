@@ -8,6 +8,9 @@ class Music extends Model
 {
     protected $table = 'music';
 
+    const CREATED_AT = 'created_time';
+    const UPDATED_AT = 'updated_time';
+
     protected $fillable = ['id', 'name', 'desc', 'single', 'link','created_time','updated_time'];
 
     public $timestamps = true;

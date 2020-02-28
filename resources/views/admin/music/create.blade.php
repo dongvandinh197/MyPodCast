@@ -102,8 +102,7 @@
                                 <div class="col-md-9">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="music"
-                                               id="validatedCustomFile"
-                                               required accept="audio/*">
+                                               id="validatedCustomFile" accept="audio/*">
                                         <label class="custom-file-label" for="validatedCustomFile">Chọn nhạc...</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                                     </div>
@@ -116,7 +115,7 @@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="music"
                                                id="validatedCustomFile"
-                                               required accept="audio/*">
+                                               accept="audio/*">
                                         <label class="custom-file-label" for="validatedCustomFile">Sửa nhạc...</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                                     </div>
